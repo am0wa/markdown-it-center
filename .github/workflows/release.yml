@@ -1,8 +1,5 @@
 name: Release
 on:
-  push:
-    branches:
-      - "main"
   workflow_dispatch:
 
 permissions:
@@ -27,7 +24,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: 'pnpm'
 
       - name: Install dependencies
@@ -43,13 +40,26 @@ jobs:
         run: pnpm test
 
       - name: Format check
-        run: npx prettier './**/**.{js,jsx,ts,tsx}' --check
+        run: pnpm exec prettier './**/**.{js,jsx,ts,tsx}' --check
 
       - name: Commit formatting check
         uses: wagoid/commitlint-github-action@v6
 
-      - name: Release
+      - name: Bump version + generate notes (no commit, no tag)
+        run: pnpm exec commit-and-tag-version --skip.commit --skip.tag
+
+      - name: Publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
+        run: pnpm publish --access public
+
+      - name: Tag + GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          version="v$(node -p "require('./package.json').version")"
+          git tag "$version"
+          git push origin "$version"
+          awk '/^## /{n++} n==1' CHANGELOG.md > release-notes.md
+          gh release create "$version" --title "$version" --notes-file release-notes.md
