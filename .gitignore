@@ -47,5 +47,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
+# release notes (generated; edited on GitHub Releases)
+CHANGELOG.md
+release-notes.md
+
 # Env files created by scripts for working locally
 studio/.env.development

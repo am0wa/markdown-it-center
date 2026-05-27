@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-center",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Markdown-it plugin to center text and blocks",
   "type": "module",
   "sideEffects": false,
@@ -12,7 +12,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "prepublishOnly": "pnpm build && pnpm test",
-    "prepare": "husky"
+    "prepare": "husky",
+    "bump-version": "commit-and-tag-version --skip.tag --skip.commit --skip.changelog"
   },
   "keywords": [
     "markdown",
@@ -23,6 +24,11 @@
   ],
   "author": "am0wa",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/am0wa/markdown-it-center.git"
+  },
+  "homepage": "https://github.com/am0wa/markdown-it-center#readme",
   "devEngines": {
     "packageManager": {
       "name": "pnpm",

@@ -45,8 +45,8 @@ jobs:
       - name: Commit formatting check
         uses: wagoid/commitlint-github-action@v6
 
-      - name: Bump version + generate notes (no commit, no tag)
-        run: pnpm exec commit-and-tag-version --skip.commit --skip.tag
+      - name: Generate release notes (no bump, no commit, no tag)
+        run: pnpm exec commit-and-tag-version --skip.bump --skip.commit --skip.tag
 
       - name: Publish
         env:
