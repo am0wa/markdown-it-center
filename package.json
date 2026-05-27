@@ -1,0 +1,62 @@
+{
+  "name": "markdown-it-text-center",
+  "version": "1.0.0-0",
+  "description": "Markdown extension syntax to center text",
+  "type": "module",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -b src/tsconfig.json",
+    "build:watch": "tsc -b tsconfig.json -w",
+    "lint": "eslint . --cache",
+    "format": "prettier './**/**.{js,jsx,ts,tsx}' --write",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "pnpm build && pnpm test",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "markdown",
+    "center-text"
+  ],
+  "author": "am0wa",
+  "license": "MIT",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.3.0",
+      "onFail": "download"
+    }
+  },
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js",
+      "require": "./lib/index.js",
+      "default": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "peerDependencies": {
+    "markdown-it": "^14"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.0.1",
+    "@commitlint/config-conventional": "^21.0.1",
+    "@eslint/js": "^10.0.1",
+    "@types/markdown-it": "^14.1.2",
+    "eslint": "^10.4.0",
+    "globals": "^17.6.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.5",
+    "markdown-it": "^14.2.0",
+    "prettier": "3.8.3",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.60.0",
+    "vitest": "^4.1.7"
+  }
+}
