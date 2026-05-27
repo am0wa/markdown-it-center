@@ -1,7 +1,7 @@
 {
-  "name": "markdown-it-text-center",
-  "version": "1.0.0-0",
-  "description": "Markdown extension syntax to center text",
+  "name": "markdown-it-center",
+  "version": "1.0.0",
+  "description": "Markdown-it plugin to center text and blocks",
   "type": "module",
   "sideEffects": false,
   "scripts": {
@@ -16,7 +16,10 @@
   },
   "keywords": [
     "markdown",
-    "center-text"
+    "markdown-it",
+    "center",
+    "center-text",
+    "block"
   ],
   "author": "am0wa",
   "license": "MIT",

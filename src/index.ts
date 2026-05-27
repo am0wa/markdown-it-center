@@ -1,2 +1,2 @@
-export type { Options } from "./text-center-plugin.js";
-export { default } from "./text-center-plugin.js";
+export type { Options } from "./center-it-plugin.js";
+export { default } from "./center-it-plugin.js";
