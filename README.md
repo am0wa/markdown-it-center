@@ -48,7 +48,7 @@ Wrap any paragraph or heading content in `->` … `<-`:
 
 # ->Centered heading<-
 
-# ->Centered Blockquote paragraph<-
+> ->Centered Blockquote paragraph<-
 ```
 
 Output:
